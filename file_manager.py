@@ -2,8 +2,6 @@ import pandas as pd
 import os
 import json
 
-from sqlalchemy import null
-
 '''
 For now, the files are hard coded for simplicity
 '''

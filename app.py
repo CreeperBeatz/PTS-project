@@ -1,16 +1,11 @@
 # System imports
-import os
 import io
-import traceback
-import random
 
 # Dependency imports
 from quart import Quart, request, send_file, Response
 from quart_cors import cors
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-import numpy as np
-from skimage.io import imsave
 from math_analyzer import correlation_analysis
 
 
