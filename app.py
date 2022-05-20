@@ -86,7 +86,7 @@ async def get_correlation_picture():
         ys = [row['grade'] for row in dataset]
         axis.scatter(xs, ys)
         axis.set_title("Correlation Graph")
-        axis.set_xlabel("Time lectures checked")
+        axis.set_xlabel("Number of times lectures checked")
         axis.set_ylabel("Grade")
         return fig
     fig = create_figure()
