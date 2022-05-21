@@ -5,18 +5,11 @@ A quick python project for analyzing logs of a Moodle system
 
 # How to run the project
 
-1. Install python + PIP
-2. open a terminal and type "pip install {}":
-    * numpy
-    * pandas
-    * scipy
-    * matplotlib
-    * quart
-    * quart_cors
-3. After installing all the libraries, type in the terminal
-   `py app.py`
-   The server will start
-4. To access the server, go to your browser and type `localhost` in the search bar at the top
+1. Install python + pip
+2. open a terminal and navigate to the root folder of the project
+3. Type `pip install -r requirements.txt`
+4. After installing all the libraries, type in the terminal `py app.py` and the server will start
+5. To access the server, go to your browser and type `localhost` in the search bar at the top
 
 ---
 
@@ -24,5 +17,6 @@ A quick python project for analyzing logs of a Moodle system
 
 1. Turn off the server (Ctrl + C on the terminal where it's running)
 2. open the `public` folder
-3. Change `Grades.xlsx` or/and `Logs.xlsx` with whatever grades xlsx file you want (They still need to be called the same way)
+3. Change `Grades.xlsx` or/and `Logs.xlsx` with whatever xlsx file you want (They still need to be called the same way AND follow the same format)
+4. Turn on the server again (open a terminal in the root directory of the project and type `py app.py`)
  
