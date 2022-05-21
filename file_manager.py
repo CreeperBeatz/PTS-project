@@ -11,21 +11,12 @@ def get_activity_per_user(user_id):
     """
     user_id: int or None(for all records)
     """
-    if user_id is not None:
-        activities = []
+    all_activities = load_all_activities()
 
-        df = pd.read_excel(os.path.join(
-            "public", "Logs.xlsx"))
-        # get last column from dataframe
-        description: pd.DataFrame = df.iloc[:, -1]
-        # description.reset_index()  # prepare for iteration
-        for row in description:
-            # append tuple of user_id + activity(minus coma)
-            if user_id == int(row[18:22]):
-                activities.append((int(row[18:22]), row[24:-1]))
-        return activities
+    if user_id is not None:
+        return [activity for activity in all_activities if activity[0] == user_id]
     else:
-        return load_all_activities()
+        return all_activities
 
 
 def make_grade_to_visited_courses():
