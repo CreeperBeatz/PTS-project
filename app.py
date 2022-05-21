@@ -6,12 +6,11 @@ from quart import Quart, request, Response
 from quart_cors import cors
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from math_analyzer import correlation_analysis
-
 
 # Self imports
 from template_engine import correlation_template, generalized_analysis_template, main_menu_template
 from file_manager import get_activity_per_user, create_json_files, load_grade_to_visited_courses
+from math_analyzer import correlation_analysis
 
 application = Quart(__name__, )
 application = cors(
