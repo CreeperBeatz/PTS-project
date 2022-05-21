@@ -7,21 +7,9 @@ For now, the files are hard coded for simplicity
 '''
 
 
-def get_activity_per_user(user_id):
-    """
-    user_id: int or None(for all records)
-    """
-    all_activities = load_all_activities()
-
-    if user_id is not None:
-        return [activity for activity in all_activities if activity[0] == user_id]
-    else:
-        return all_activities
-
-
 def make_grade_to_visited_courses():
     '''
-    Extremely unoptimized, make sure to run only once
+    Creation of a data structure for easier math analysis
     '''
     grade_visited_courses = []
 
@@ -57,6 +45,8 @@ def make_grade_to_visited_courses():
 
     return grade_visited_courses
 
+#### Loading from JSON files ####
+
 
 def load_grade_to_visited_courses():
     with open("grade_to_visited_courses.json", "r") as openfile:
@@ -68,7 +58,33 @@ def load_all_activities():
         return json.load(openfile)
 
 
+def get_activity_per_user(user_id):
+    """
+    user_id: int or None(for all records)
+
+    method uses already generated JSON file
+    """
+    all_activities = load_all_activities()
+
+    if user_id is not None:
+        return [activity for activity in all_activities if activity[0] == user_id]
+    else:
+        return all_activities
+
+
+#### JSON Creation ####
+
 def create_json_files():
+    """
+    This method:
+
+    1. Loads Logs and parses them to be 
+    only user id + activity, then saves them to a JSON
+
+
+    2. Uses the make_grade_to_visited_courses() to make a data structure
+    and saves it to a JSON file
+    """
 
     # make file for all activities
     activities = []
@@ -76,7 +92,6 @@ def create_json_files():
         "public", "Logs.xlsx"))
     # get last column from dataframe
     description: pd.DataFrame = df.iloc[:, -1]
-    # description.reset_index()  # prepare for iteration
     for row in description:
         # append tuple of user_id + activity(minus coma)
         activities.append((int(row[18:22]), row[24:-1]))

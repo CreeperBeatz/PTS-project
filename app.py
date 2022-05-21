@@ -80,7 +80,7 @@ async def get_correlation_picture():
     FigureCanvas(fig).print_png(output)
     return Response(output.getvalue(), mimetype='image/png')
 
-# Stamipng endpoint
+# Run the server
 if __name__ == "__main__":
     application.run(host='0.0.0.0', port=80, debug=True, )
 
