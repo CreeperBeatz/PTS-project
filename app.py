@@ -68,9 +68,7 @@ async def get_correlation_analysis():
 @application.route('/correlation_picture', methods=['GET'])
 async def get_correlation_picture():
     """
-    REAAAALLLY unoptimised way to do it
-
-    but I dont care
+    Get a dinamically generated picture of the correlation graph
     """
     dataset = load_grade_to_visited_courses()
 
@@ -94,6 +92,6 @@ if __name__ == "__main__":
     application.run(host='0.0.0.0', port=80, debug=True, )
 
 
-# Put anything that you want to start from Gunicorn master process here
+# Put anything that you want to start from hypercorn master process here
 def on_starting(_server):
     pass
