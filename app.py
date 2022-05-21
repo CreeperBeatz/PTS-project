@@ -2,7 +2,7 @@
 import io
 
 # Dependency imports
-from quart import Quart, request, send_file, Response
+from quart import Quart, request, Response
 from quart_cors import cors
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
@@ -26,17 +26,12 @@ application.before_serving(create_json_files)
 
 # ###### API REQUEST HANDLERS ######
 
-# Tourist site endpoints
-
 
 @application.route('/', methods=['GET', 'POST'], )
 async def main_menu():
     """
     Function for getting main menu
     """
-    # get_lectures_per_user()
-    # print(get_activity_per_user(None))
-    # get_grade_per_user()
     return main_menu_template(), 200
 
 
@@ -52,8 +47,6 @@ async def get_generalized_analysis():
     user_id = request.args.get('id', type=int)
 
     return generalized_analysis_template(get_activity_per_user(user_id)), 200
-
-# Identification endpoint
 
 
 @application.route('/correlation_analysis', methods=['GET', ], )
